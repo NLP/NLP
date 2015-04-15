@@ -1,12 +1,16 @@
 [submodule "Grammatica"]
 	path = Grammatica
 	url = git@github.com:NLP/Grammatica.git
+    branch = master
 [submodule "Entropy"]
 	path = Entropy
 	url = git@github.com:NLP/Entropy.git
+    branch = master
 [submodule "Parser"]
 	path = Parser
 	url = git@github.com:NLP/Parser.git
+    branch = master
 [submodule "Unit-Testing"]
 	path = Unit-Testing
 	url = git@github.com:NLP/Unit-Testing.git
+    branch = master
