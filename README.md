@@ -6,8 +6,13 @@ Join our online chat at [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)
 ### Guide
 ```
 1.Clone the repository
-2. run `git submodule update`
+2. run `git pull && git submodule update --init --recursive` to automatically update all submodules
 3. Work on specific repository separately
+```
+
+### Qt Settings
+```
+Default build directory : ../build-%{CurrentProject:Name}-%{CurrentKit:FileSystemName}-%{CurrentBuild:Name}
 ```
 
 Link on submodules : https://chrisjean.com/git-submodules-adding-using-removing-and-updating/
