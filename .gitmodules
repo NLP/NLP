@@ -13,4 +13,3 @@
 [submodule "Unit-Testing"]
 	path = Unit-Testing
 	url = git@github.com:NLP/Unit-Testing.git
-    branch = master
