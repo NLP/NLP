@@ -1,6 +1,7 @@
 # Main repository (Read Only)
+=====================================================
 
-Join our online chat at [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/atomic/nlp)
+Join our online chat at [![Gitter](https://badges.gitter.im/NLP/gitter.svg)](https://gitter.im/nlp)
 
 
 ### Guide
@@ -18,6 +19,12 @@ Some repository has multiple branches, to pull and work on them :
 ### Qt Settings
 ```
 Default build directory : ../build-%{CurrentProject:Name}-%{CurrentKit:FileSystemName}-%{CurrentBuild:Name}
+```
+
+# Project Diagram
+
+```sequence
+Token->Word->Grammar
 ```
 
 Link on submodules : https://chrisjean.com/git-submodules-adding-using-removing-and-updating/
