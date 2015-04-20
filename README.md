@@ -21,7 +21,7 @@ Some repository has multiple branches, to pull and work on them :
 Default build directory : ../build-%{CurrentProject:Name}-%{CurrentKit:FileSystemName}-%{CurrentBuild:Name}
 ```
 
-# Project Diagram
+### Project Diagram
 ```
 1. Tokenize Input into Tokens
 2. Tag Tokens with POS Tags
@@ -31,7 +31,7 @@ Default build directory : ../build-%{CurrentProject:Name}-%{CurrentKit:FileSyste
 6. Determine the most probable Tree
 7. Create Relationship Diagram from the Tree
 ```
-# Meaning Representation Scope
+### Meaning Representation Scope
 ```
 1. Simple Declarative Sentences with Transitive Verbs (Ex: He kicks the ball)
 2. Declarative Sentences with Transitives and Indirect Objects (Ex: He kicks the ball to her)
