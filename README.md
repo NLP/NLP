@@ -22,9 +22,15 @@ Default build directory : ../build-%{CurrentProject:Name}-%{CurrentKit:FileSyste
 ```
 
 # Project Diagram
-
-```sequence
-Token->Word->Grammar
 ```
-
+1. Tokenize Input into Tokens
+2. Tag Tokens with POS Tags
+3. Determine the most probable Tag for each Token
+4. Parse Tokens into Syntax Tree using Grammar Structure
+5. Determine Head Verb/Noun of the Tree and each of its Sub-Trees
+6. Determine the most probable Tree
+7. Create Relationship Diagram from the Tree
+```
 Link on submodules : https://chrisjean.com/git-submodules-adding-using-removing-and-updating/
+
+
