@@ -19,6 +19,7 @@ namespace NLP
         noun      , interjections , imperative  ,
         particple , preposition   , pronoun     , plural , singular,
         verb      , transitive, intransitive, interrogative, object,
+        determiner, //ADDED THIS BY JOSEPH
 
         IGNORETHIS
     };
@@ -168,6 +169,13 @@ namespace NLP
         PREP
     };
 
+    enum SentenceType{
+        DECLARATIVE,
+        IMPERATIVE,
+        INTERROGATIVE
+//        QUESTION
+    };
+
     //Typedefs:
     /**
      * @brief GPlist typedef for vector<GrammarPhrase>
@@ -210,7 +218,8 @@ namespace NLP
     static std::map<WordType,GrammarPhrase> WTtoGP = {
         {noun,NOUN},
         {verb,VERB},
-        {preposition,PREP}
+        {preposition,PREP},
+        {determiner,DETERMINER}
     };
 
     static GrammarPhrase nonobjects[] = {
