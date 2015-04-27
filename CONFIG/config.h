@@ -84,7 +84,7 @@ namespace NLP
      * @brief The GrammarPhrase enum Denotes the Grammar Phrase
      */
     enum GrammarPhrase{
-        UNKNOWN     = 0,
+        G_INVALID   = 0,
         ALL         = 1,
         SENTENCE    = 2,
         NOUNPHRASE  = 3,
@@ -100,7 +100,7 @@ namespace NLP
       * @brief gpList The array that holds all of the Grammar Phrase enumerations.
       */
     static const GrammarPhrase gpList[] ={
-        UNKNOWN,
+        G_INVALID,
         ALL,
         SENTENCE,
         NOUNPHRASE,
@@ -117,7 +117,7 @@ namespace NLP
       * @brief phraseLookUp The map that converst the GrammarPhrase enumeration to a string
       */
     static std::map<GrammarPhrase,std::string> phraseLookUp = {
-        {    UNKNOWN,       "Unknown"       },
+        {    G_INVALID,     "Invalid"       },
         {    ALL,           "All"           },
         {    SENTENCE,      "Sentence"      },
         {    NOUNPHRASE,    "Noun Phrase"   },
@@ -132,8 +132,8 @@ namespace NLP
     };
 
     enum SyntaxObject{
-        INVALID,
-        NONE,
+        S_INVALID,
+        S_NONE,
         SUBJECT,
         MAINVERB,
         DIRECTOBJ,
@@ -141,9 +141,9 @@ namespace NLP
         MODIFIERVERB
     };
 
-    static const std::map<SyntaxObject,std::string> syntaxLookUp = {
-        {   INVALID,        "Invalid"           },
-        {   NONE,           "None"              },
+    static std::map<SyntaxObject,std::string> syntaxLookUp = {
+        {   S_INVALID,      "Invalid"           },
+        {   S_NONE,         "None"              },
         {   SUBJECT,        "Subject"           },
         {   MAINVERB,       "Main Verb"         },
         {   DIRECTOBJ,      "Direct Object"     },
@@ -152,8 +152,8 @@ namespace NLP
     };
 
     static const SyntaxObject soList[] = {
-        INVALID,
-        NONE,
+        S_INVALID,
+        S_NONE,
         SUBJECT,
         MAINVERB,
         DIRECTOBJ,
@@ -168,35 +168,6 @@ namespace NLP
         PREP
     };
 
-//    enum PoSPhrase{
-//        UNKNOWN,
-//        NONE,
-//        NOUN,
-//        VERB,
-//        DETERMINER,
-//        PREP
-//    };
-
-    //Possible coners: PosPhrase -> wordtype and vice-versa
-    //since word stores its parts of speech as a wordtype
-//    static const std::map<PoSPhrase,std::string> posLookUp = {
-//        {UNKNOWN,       "Unknown"       },
-//        {NONE,          "None"          },
-//        {NOUN,          "Noun"          },
-//        {VERB,          "Verb"          },
-//        {DETERMINER,    "Determiner"    },
-//        {PREP,          "Preposition"   }
-//    };
-
-//    static const PoSPhrase posList[] = {
-//        UNKNOWN,
-//        NONE,
-//        NOUN,
-//        VERB,
-//        DETERMINER,
-//        PREP
-//    };
-
     //Typedefs:
     /**
      * @brief GPlist typedef for vector<GrammarPhrase>
@@ -210,48 +181,9 @@ namespace NLP
      * @brief GPpair typedef for pair<GrammarPhrase, vector<GrammarPhrase> >
      */
     typedef std::pair<GrammarPhrase,GPlist> GPpair;
-//Move these:
-//    //Structures:
-//    struct SyntaxWord{ //Container for a Word and a Syntactical Identifier
-//        SyntaxObject _so;
-//        Word _word;
-//        SyntaxWord(){
-//            _so = INVALID; //Does Word have a default constructor?
-//        }
 
-//        SyntaxWord(const SyntaxObject& so, const Word& word){
-//            _so = so;
-//            _word = word;
-//        }
-//    };
-//    bool isHeadWord(const GrammarPhrase& gp, const SyntaxWord& W){
-//        switch(gp){
-//        case PREPPHRASE:
-//        case NOUNPHRASE:{
-//            //if W is a noun
-//            return true;
-//            break;
-//        }
-//        case SENTENCE:
-//        case VERBPHRASE:{
-//            //if W is a verb
-//            return true;
-//            break;
-//        }
-//        default:{
-//            break;
-//        }
-//        }
-//        return false;
-//    }
 
-//    bool isPoS(const GrammarPhrase& gp){
-//        for(auto& i : posList){
-//            if(i == gp)
-//                return true;
-//        }
-//        return false;
-//    }
+
 
     //Initializer List for Reduced Context Free Grammar of Order Zero
     /**
@@ -266,6 +198,23 @@ namespace NLP
         GPpair(VERBPHRASE,{VERB,NOUNPHRASE,PREPPHRASE}),
         GPpair(VERBPHRASE,{VERB,PREPPHRASE}),
         GPpair(PREPPHRASE,{PREP,NOUNPHRASE})
+    };
+//    others = 0,
+//    adjective , adverb        , conjunction , dative,
+//    , interjections , imperative  ,
+//    particple , preposition   , pronoun     , plural , singular,
+//    , transitive, intransitive, interrogative, object,
+
+//    IGNORETHIS
+
+    static std::map<WordType,GrammarPhrase> WTtoGP = {
+        {noun,NOUN},
+        {verb,VERB},
+        {preposition,PREP}
+    };
+
+    static GrammarPhrase nonobjects[] = {
+        DETERMINER,
     };
 
 } /* NLP */
