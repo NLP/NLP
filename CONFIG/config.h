@@ -8,10 +8,6 @@ using namespace std;
 namespace NLP
 {
 
-    const QString DB_PATH = "../../en_db.sqlite";
-        // Depending on where the build folder is
-        // default NLP/Unit-Testing/build....
-
     // word tag? there are more, see .dat for list of them
     enum WordType {
         others = 0,
