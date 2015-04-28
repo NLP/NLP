@@ -137,8 +137,8 @@ namespace NLP
         S_NONE,
         SUBJECT,
         MAINVERB,
-        DIRECTOBJ,
-        INDIRECTOBJ,
+        DIRECTOBJ,          /// He eats "apple"
+        INDIRECTOBJ,       /// He kicks the ball to "him"
         MODIFIERVERB
     };
 
