@@ -45,7 +45,7 @@ namespace NLP
         {"sing."     , singular     } ,
         {"v."        , verb         } ,
 
-        {"object."   , object       } ,
+        {"object."   , pronoun       } , //previously mapped to object
         {"t."        , transitive   } ,
         {"i."        , intransitive } ,
         {"?"        , others        } ,
@@ -219,7 +219,8 @@ namespace NLP
         {noun,NOUN},
         {verb,VERB},
         {preposition,PREP},
-        {determiner,DETERMINER}
+        {determiner,DETERMINER},
+        {pronoun,NOUN}
     };
 
     static GrammarPhrase nonobjects[] = {
