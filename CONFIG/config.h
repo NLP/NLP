@@ -8,10 +8,6 @@ using namespace std;
 namespace NLP
 {
 
-    const QString DB_PATH = "../../en_db.sqlite";
-        // Depending on where the build folder is
-        // default NLP/Unit-Testing/build....
-
     // word tag? there are more, see .dat for list of them
     enum WordType {
         others = 0,
@@ -19,7 +15,7 @@ namespace NLP
         noun      , interjections , imperative  ,
         particple , preposition   , pronoun     , plural , singular,
         verb      , transitive, intransitive, interrogative, object,
-        determiner, //ADDED THIS BY JOSEPH
+        determiner,
 
         IGNORETHIS
     };
@@ -48,6 +44,9 @@ namespace NLP
         {"object."   , pronoun       } , //previously mapped to object
         {"t."        , transitive   } ,
         {"i."        , intransitive } ,
+
+        {"det."      , determiner   } ,
+
         {"?"        , others        } ,
 
         /// IGNORE LIST
@@ -74,6 +73,7 @@ namespace NLP
         {intransitive  , "i."        } ,
         {dative        , "dat."      } ,
         {interrogative , "interrog." } ,
+        {determiner    , "det."      } ,
 
         {IGNORETHIS    , "IGNORE"    }
     };
@@ -137,8 +137,8 @@ namespace NLP
         S_NONE,
         SUBJECT,
         MAINVERB,
-        DIRECTOBJ,
-        INDIRECTOBJ,
+        DIRECTOBJ,          /// He eats "apple"
+        INDIRECTOBJ,       /// He kicks the ball to "him"
         MODIFIERVERB
     };
 
