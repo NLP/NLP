@@ -30,7 +30,7 @@ namespace NLP
         {"p."        , particple       } ,
         {"prep."     , preposition     } ,
         {"dat."      , dative        }   ,
-        {"interrog." , interrogative }   ,
+        {"interrog." , interrogative }   , //Need to change the Wh words into interoggs
 
         {"pr."       , pronoun      } ,
         {"pron."     , pronoun      } , /// He   , She  , ...
@@ -95,7 +95,12 @@ namespace NLP
         NOUN        = 7,
         VERB        = 8,
         PREP        = 9,
-        DETERMINER  = 10
+        DETERMINER  = 10,
+
+        INTPHRASE,
+        WHPHRASE,
+        WHWORD,
+        AUXILARY
     };
     /**
       * @brief gpList The array that holds all of the Grammar Phrase enumerations.
@@ -111,7 +116,11 @@ namespace NLP
         NOUN,
         VERB,
         PREP,
-        DETERMINER
+        DETERMINER,
+        INTPHRASE,
+        WHPHRASE,
+        WHWORD,
+        AUXILARY
     };
 
     /**
@@ -128,7 +137,11 @@ namespace NLP
         {    NOUN,          "Noun"          },
         {    VERB,          "Verb"          },
         {    PREP,          "Preposition"   },
-        {    DETERMINER,    "Determiner"    }
+        {    DETERMINER,    "Determiner"    },
+        {    INTPHRASE ,    "Inter. Phrase" },
+        {    WHPHRASE,      "Wh. Phrase"    },
+        {    WHWORD,        "Wh. Word"      },
+        {    AUXILARY,      "Auxilary"      }
 
     };
 
@@ -139,7 +152,8 @@ namespace NLP
         MAINVERB,
         DIRECTOBJ,          /// He eats "apple"
         INDIRECTOBJ,       /// He kicks the ball to "him"
-        MODIFIERVERB
+        AUX,
+        QWORD
     };
 
     static std::map<SyntaxObject,std::string> syntaxLookUp = {
@@ -149,7 +163,8 @@ namespace NLP
         {   MAINVERB,       "Main Verb"         },
         {   DIRECTOBJ,      "Direct Object"     },
         {   INDIRECTOBJ,    "Indirect Object"   },
-        {   MODIFIERVERB,   "Modifier Verb"     }
+        {   AUX,            "Auxilary Verb"     },
+        {   QWORD,          "Question Word"     }
     };
 
     static const SyntaxObject soList[] = {
@@ -159,23 +174,39 @@ namespace NLP
         MAINVERB,
         DIRECTOBJ,
         INDIRECTOBJ,
-        MODIFIERVERB
+        AUX,
+        QWORD
     };
 
     static const GrammarPhrase posList[] = {
         NOUN,
         VERB,
         DETERMINER,
-        PREP
+        PREP,
+        WHWORD
     };
 
     enum SentenceType{
+        ST_INVALID,
         DECLARATIVE,
         IMPERATIVE,
         INTERROGATIVE
 //        QUESTION
     };
 
+    static const SentenceType sentenceList[] = {
+         ST_INVALID,
+        DECLARATIVE,
+        IMPERATIVE,
+        INTERROGATIVE
+    };
+
+    static  std::map<SentenceType,std::string> sentenceLookUp = {
+        {ST_INVALID,    "Invalid"    },
+        {DECLARATIVE,   "Declarative"},
+        {IMPERATIVE,    "Imperative" },
+        {INTERROGATIVE, "Interrogative"}
+    };
     //Typedefs:
     /**
      * @brief GPlist typedef for vector<GrammarPhrase>
@@ -207,6 +238,26 @@ namespace NLP
         GPpair(VERBPHRASE,{VERB,PREPPHRASE}),
         GPpair(PREPPHRASE,{PREP,NOUNPHRASE})
     };
+
+    static const GPpair cfgqInit[] = {
+        GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
+        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,VERBPHRASE}),
+        GPpair(SENTENCE,{INTPHRASE,VERBPHRASE}),
+        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE}),
+        GPpair(NOUNPHRASE,{NOUN}),
+        GPpair(NOUNPHRASE,{DETERMINER,NOUN}),
+        GPpair(VERBPHRASE,{VERB}),
+        GPpair(VERBPHRASE,{VERB,NOUNPHRASE}),
+        GPpair(VERBPHRASE,{VERB,NOUNPHRASE,PREPPHRASE}),
+        GPpair(VERBPHRASE,{VERB,PREPPHRASE}),
+        GPpair(PREPPHRASE,{PREP,NOUNPHRASE}),
+        GPpair(PREPPHRASE,{PREP}),
+        GPpair(INTPHRASE,{WHPHRASE}),
+        GPpair(INTPHRASE,{WHPHRASE,AUXILARY}),
+        GPpair(INTPHRASE,{AUXILARY}),
+        GPpair(WHPHRASE,{WHWORD}),
+        GPpair(AUXILARY,{VERB})
+    };
 //    others = 0,
 //    adjective , adverb        , conjunction , dative,
 //    , interjections , imperative  ,
@@ -223,8 +274,14 @@ namespace NLP
         {pronoun,NOUN}
     };
 
-    static GrammarPhrase nonobjects[] = {
-        DETERMINER,
+    static std::map<GrammarPhrase,WordType> GPtoWT = {
+        {NOUN,noun},
+        {VERB,verb},
+        {PREP,preposition},
+        {DETERMINER,determiner}
+//        {pronoun,NOUN}
     };
+
+
 
 } /* NLP */
