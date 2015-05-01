@@ -242,21 +242,21 @@ namespace NLP
     };
 
     static const GPpair cfgqInit[] = {
-        GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE}),
-        GPpair(NOUNPHRASE,{NOUN}),
+        GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
         GPpair(NOUNPHRASE,{DETERMINER,NOUN}),
-        GPpair(VERBPHRASE,{VERB}),
-        GPpair(VERBPHRASE,{VERB,NOUNPHRASE}),
+        GPpair(NOUNPHRASE,{NOUN}),
         GPpair(VERBPHRASE,{VERB,NOUNPHRASE,PREPPHRASE}),
+        GPpair(VERBPHRASE,{VERB,NOUNPHRASE}),
         GPpair(VERBPHRASE,{VERB,PREPPHRASE}),
+        GPpair(VERBPHRASE,{VERB}),
         GPpair(PREPPHRASE,{PREP,NOUNPHRASE}),
         GPpair(PREPPHRASE,{PREP}),
-        GPpair(INTPHRASE,{WHPHRASE}),
         GPpair(INTPHRASE,{WHPHRASE,AUXILARY}),
         GPpair(INTPHRASE,{AUXILARY}),
+        GPpair(INTPHRASE,{WHPHRASE}),
         GPpair(WHPHRASE,{WHWORD}),
         GPpair(AUXILARY,{VERB})
     };
@@ -273,14 +273,16 @@ namespace NLP
         {verb,VERB},
         {preposition,PREP},
         {determiner,DETERMINER},
-        {pronoun,NOUN}
+        {pronoun,NOUN},
+        {question,WHWORD}
     };
 
     static std::map<GrammarPhrase,WordType> GPtoWT = {
         {NOUN,noun},
         {VERB,verb},
         {PREP,preposition},
-        {DETERMINER,determiner}
+        {DETERMINER,determiner},
+        {WHWORD,question}
 //        {pronoun,NOUN}
     };
 
