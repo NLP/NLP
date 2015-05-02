@@ -188,7 +188,8 @@ namespace NLP
         VERB,
         DETERMINER,
         PREP,
-        WHWORD
+        WHWORD,
+        AUXILARY
     };
 
     enum SentenceType{
@@ -246,6 +247,7 @@ namespace NLP
 
     static const GPpair cfgqInit[] = {
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,VERBPHRASE}),
+//        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,PREPPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE}),
         GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
