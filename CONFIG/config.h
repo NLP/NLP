@@ -261,7 +261,7 @@ namespace NLP
         GPpair(INTPHRASE,{AUXILARY}),
         GPpair(INTPHRASE,{WHPHRASE}),
         GPpair(WHPHRASE,{WHWORD}),
-        GPpair(AUXILARY,{VERB})
+//        GPpair(AUXILARY,{VERB})
     };
 //    others = 0,
 //    adjective , adverb        , conjunction , dative,
@@ -277,7 +277,8 @@ namespace NLP
         {preposition,PREP},
         {determiner,DETERMINER},
         {pronoun,NOUN},
-        {question,WHWORD}
+        {question,WHWORD},
+        {auxiliary,AUXILARY}
     };
 
     static std::map<GrammarPhrase,WordType> GPtoWT = {
@@ -285,7 +286,8 @@ namespace NLP
         {VERB,verb},
         {PREP,preposition},
         {DETERMINER,determiner},
-        {WHWORD,question}
+        {WHWORD,question},
+        {AUXILARY,auxiliary}
 //        {pronoun,NOUN}
     };
 
