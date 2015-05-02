@@ -15,7 +15,7 @@ namespace NLP
         noun      , interjections , imperative  ,
         particple , preposition   , pronoun     , plural , singular,
         verb      , transitive, intransitive, interrogative, object,
-        determiner, question,
+        determiner, question, auxiliary,
 
         IGNORETHIS
     };
@@ -40,6 +40,8 @@ namespace NLP
         {"pl."       , plural       } ,
         {"sing."     , singular     } ,
         {"v."        , verb         } ,
+        {"aux."      , auxiliary    } ,
+
 
         {"object."   , pronoun       } , //previously mapped to object
         {"t."        , transitive   } ,
@@ -76,6 +78,7 @@ namespace NLP
         {interrogative , "interrog." } ,
         {determiner    , "det."      } ,
         {question      , "q."        } ,
+        {auxiliary     , "aux."      } ,
 
         {IGNORETHIS    , "IGNORE"    }
     };
