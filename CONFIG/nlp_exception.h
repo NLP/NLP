@@ -20,6 +20,15 @@ namespace NLP
             return "Unimplemented error.";
         }
     };
+
+    class invalid_sentence : public exception
+    {
+        virtual const char* what() const throw()
+        {
+            return "Invalid sentence type.";
+        }
+    };
+
 } /* NLP */
 
 
