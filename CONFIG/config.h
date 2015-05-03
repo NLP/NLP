@@ -166,6 +166,17 @@ namespace NLP
         QWORD
     };
 
+    static std::map<SyntaxObject, std::string> syntaxStrEncoding = {
+        {   S_INVALID,      "i"           },
+        {   S_NONE,         "n"           },
+        {   SUBJECT,        "s"           },
+        {   MAINVERB,       "v"           },
+        {   DIRECTOBJ,      "o"           },
+        {   INDIRECTOBJ,    "io"          },
+        {   AUX,            "aux" 	      },
+        {   QWORD,          "q"        	  }
+    };
+
     static std::map<SyntaxObject,std::string> syntaxLookUp = {
         {   S_INVALID,      "Invalid"           },
         {   S_NONE,         "None"              },
