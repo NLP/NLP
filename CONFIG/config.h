@@ -17,7 +17,7 @@ namespace NLP
     enum WordType {
         others = 0,
         adjective , adverb        , conjunction , dative,
-        noun      , interjections , imperative  ,
+        noun      , interjections , imperfect  ,
         particple , preposition   , pronoun     , plural , singular,
         verb      , transitive, intransitive, interrogative, object,
         determiner, question, auxiliary,
@@ -31,7 +31,7 @@ namespace NLP
         {"conj."     , conjunction     } ,
         {"n."        , noun            } ,
         {"interj."   , interjections   } ,
-        {"imp."      , imperative      } ,
+        {"imp."      , imperfect      } ,
         {"p."        , particple       } ,
         {"prep."     , preposition     } ,
         {"dat."      , dative        }   ,
@@ -69,7 +69,7 @@ namespace NLP
         {conjunction   , "conj."     } ,
         {noun          , "n."        } ,
         {interjections , "interj."   } ,
-        {imperative    , "imp."      } ,
+        {imperfect    , "imp."      } ,
         {particple     , "p."        } ,
         {preposition   , "prep."     } ,
         {plural        , "pl."       } ,
@@ -298,7 +298,9 @@ namespace NLP
         {determiner,DETERMINER},
         {pronoun,NOUN},
         {question,WHWORD},
-        {auxiliary,AUXILARY}
+        {auxiliary,AUXILARY},
+        {particple,VERB},
+        {imperfect,VERB}
     };
 
     static std::map<GrammarPhrase,WordType> GPtoWT = {
