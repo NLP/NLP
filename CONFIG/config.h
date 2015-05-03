@@ -181,14 +181,14 @@ namespace NLP
      * @brief This mapping is used to query the database column names
      */
     static std::map<SyntaxObject,std::string> syntaxDBLookUp = {
-        {   S_INVALID,      "Invalid"             },
-        {   S_NONE,         "None"                },
+        {   S_INVALID,      "invalid"             },
+        {   S_NONE,         "none"                },
         {   SUBJECT,        "sub"                 },
         {   MAINVERB,       "pred"                },
         {   DIRECTOBJ,      "obj"                 },
-        {   INDIRECTOBJ,    "obj"                 }, // NOTE: For now, indirect object is object
-        {   AUX,            "Auxilary Verb"       },
-        {   QWORD,          "Question Word"     }
+        {   INDIRECTOBJ,    "indirect"            }, // NOTE: For now, indirect object is object
+        {   AUX,            "aux"      			  },
+        {   QWORD,          "question"            }
     };
     static const SyntaxObject soList[] = {
         S_INVALID,
