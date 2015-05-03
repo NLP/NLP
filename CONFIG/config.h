@@ -8,6 +8,11 @@ using namespace std;
 namespace NLP
 {
 
+    /// Relative path of where Dictionary database is
+    /// Note : Path is relative to where "build" folder is generated
+    const QString DB_PATH = "../../en_db.sqlite";
+    const QString ONT_PATH= "../../Granular-Extractor/ont_db.sqlite";
+
     // word tag? there are more, see .dat for list of them
     enum WordType {
         others = 0,
@@ -172,6 +177,19 @@ namespace NLP
         {   QWORD,          "Question Word"     }
     };
 
+    /**
+     * @brief This mapping is used to query the database column names
+     */
+    static std::map<SyntaxObject,std::string> syntaxDBLookUp = {
+        {   S_INVALID,      "Invalid"             },
+        {   S_NONE,         "None"                },
+        {   SUBJECT,        "sub"                 },
+        {   MAINVERB,       "pred"                },
+        {   DIRECTOBJ,      "obj"                 },
+        {   INDIRECTOBJ,    "obj"                 }, // NOTE: For now, indirect object is object
+        {   AUX,            "Auxilary Verb"       },
+        {   QWORD,          "Question Word"     }
+    };
     static const SyntaxObject soList[] = {
         S_INVALID,
         S_NONE,
