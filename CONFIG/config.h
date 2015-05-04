@@ -16,11 +16,11 @@ namespace NLP
     // word tag? there are more, see .dat for list of them
     enum WordType {
         others = 0,
-        adjective , adverb        , conjunction , dative,
-        noun      , interjections , imperfect  ,
-        particple , preposition   , pronoun     , plural , singular,
-        verb      , transitive, intransitive, interrogative, object,
-        determiner, question, auxiliary,
+        adjective  , adverb        , conjunction  , dative        ,
+        noun       , interjections , imperfect    ,
+        particple  , preposition   , pronoun      , plural        , singular ,
+        verb       , transitive    , intransitive , interrogative , object   ,
+        determiner , question      , auxiliary    , negation      ,
 
         IGNORETHIS
     };
@@ -46,6 +46,7 @@ namespace NLP
         {"sing."     , singular     } ,
         {"v."        , verb         } ,
         {"aux."      , auxiliary    } ,
+        {"neg."      , negation     } ,
 
 
         {"object."   , pronoun       } , //previously mapped to object
@@ -84,6 +85,7 @@ namespace NLP
         {determiner    , "det."      } ,
         {question      , "q."        } ,
         {auxiliary     , "aux."      } ,
+        {negation      , "neg."      } ,
 
         {IGNORETHIS    , "IGNORE"    }
     };
@@ -118,23 +120,21 @@ namespace NLP
       * @brief gpList The array that holds all of the Grammar Phrase enumerations.
       */
     static const GrammarPhrase gpList[] ={
-        G_INVALID,
-        ALL,
-        SENTENCE,
-        NOUNPHRASE,
-        VERBPHRASE,
-        PREPPHRASE,
-        NOMINAL,
-        NOUN,
-        VERB,
-        PREP,
-        DETERMINER,
-        INTPHRASE,
-        WHPHRASE,
-        WHWORD,
-        AUXILARY,
-        ADJECTIVE,
-        NEGATION
+        G_INVALID  ,
+        ALL        ,
+        SENTENCE   ,
+        NOUNPHRASE ,
+        VERBPHRASE ,
+        PREPPHRASE ,
+        NOMINAL    ,
+        NOUN       ,
+        VERB       ,
+        PREP       ,
+        DETERMINER ,
+        INTPHRASE  ,
+        WHPHRASE   ,
+        WHWORD     ,
+        AUXILARY
     };
 
     /**
@@ -162,13 +162,13 @@ namespace NLP
     };
 
     enum SyntaxObject{
-        S_INVALID,
-        S_NONE,
-        SUBJECT,
-        MAINVERB,
-        DIRECTOBJ,          /// He eats "apple"
-        INDIRECTOBJ,       /// He kicks the ball to "him"
-        AUX,
+        S_INVALID   ,
+        S_NONE      ,
+        SUBJECT     ,
+        MAINVERB    ,
+        DIRECTOBJ   , /// He eats "apple"
+        INDIRECTOBJ , /// He kicks the ball to "him"
+        AUX         ,
         QWORD
     };
 
@@ -208,22 +208,22 @@ namespace NLP
         {   QWORD,          "question"            }
     };
     static const SyntaxObject soList[] = {
-        S_INVALID,
-        S_NONE,
-        SUBJECT,
-        MAINVERB,
-        DIRECTOBJ,
-        INDIRECTOBJ,
-        AUX,
+        S_INVALID   ,
+        S_NONE      ,
+        SUBJECT     ,
+        MAINVERB    ,
+        DIRECTOBJ   ,
+        INDIRECTOBJ ,
+        AUX         ,
         QWORD
     };
 
     static const GrammarPhrase posList[] = {
-        NOUN,
-        VERB,
-        DETERMINER,
-        PREP,
-        WHWORD,
+        NOUN       ,
+        VERB       ,
+        DETERMINER ,
+        PREP       ,
+        WHWORD     ,
         AUXILARY
     };
 
@@ -236,9 +236,9 @@ namespace NLP
     };
 
     static const SentenceType sentenceList[] = {
-         ST_INVALID,
-        DECLARATIVE,
-        IMPERATIVE,
+         ST_INVALID   ,
+        DECLARATIVE   ,
+        IMPERATIVE    ,
         INTERROGATIVE
     };
 
