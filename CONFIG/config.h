@@ -208,8 +208,8 @@ namespace NLP
         {   SUBJECT,        "sub"                 },
         {   MAINVERB,       "pred"                },
         {   DIRECTOBJ,      "obj"                 },
-        {   INDIRECTOBJ,    "indirect"            }, // NOTE: For now, indirect object is object
-        {   AUX,            "aux"      			  },
+        {   INDIRECTOBJ,    "indirect"            },
+        {   AUX,            "*"        			  }, // * why star? yes no question
         {   QWORD,          "question"            }
     };
     static const SyntaxObject soList[] = {
