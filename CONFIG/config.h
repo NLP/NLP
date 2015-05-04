@@ -114,7 +114,8 @@ namespace NLP
         WHWORD,
         AUXILARY,
         ADJECTIVE,
-        NEGATION
+        NEGATION,
+        ADJPHRASE
     };
     /**
       * @brief gpList The array that holds all of the Grammar Phrase enumerations.
@@ -134,7 +135,8 @@ namespace NLP
         INTPHRASE  ,
         WHPHRASE   ,
         WHWORD     ,
-        AUXILARY
+        AUXILARY,
+        ADJPHRASE
     };
 
     /**
@@ -157,7 +159,8 @@ namespace NLP
         {    WHWORD,        "Wh. Word"      },
         {    AUXILARY,      "Auxilary"      },
         {   ADJECTIVE,      "Adjective"     },
-        {   NEGATION,       "Negation"      }
+        {   NEGATION,       "Negation"      },
+        {ADJPHRASE,"Adj. Phrase"}
 
     };
 
@@ -286,20 +289,25 @@ namespace NLP
         GPpair(SENTENCE,{INTPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE}),
         GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
-        GPpair(SENTENCE,{NOUNPHRASE,AUXILARY,ADJECTIVE}),
-        GPpair(SENTENCE,{NOUNPHRASE,AUXILARY,NEGATION,ADJECTIVE}),
+//        GPpair(SENTENCE,{NOUNPHRASE,AUXILARY,ADJECTIVE}),
+//        GPpair(SENTENCE,{NOUNPHRASE,AUXILARY,NEGATION,ADJECTIVE}),
         GPpair(NOUNPHRASE,{DETERMINER,NOUN}),
         GPpair(NOUNPHRASE,{NOUN}),
         GPpair(VERBPHRASE,{VERB,NOUNPHRASE,PREPPHRASE}),
         GPpair(VERBPHRASE,{VERB,NOUNPHRASE}),
         GPpair(VERBPHRASE,{VERB,PREPPHRASE}),
         GPpair(VERBPHRASE,{VERB}),
+        GPpair(VERBPHRASE,{AUXILARY,ADJPHRASE}),
         GPpair(PREPPHRASE,{PREP,NOUNPHRASE}),
         GPpair(PREPPHRASE,{PREP}),
         GPpair(INTPHRASE,{WHPHRASE,AUXILARY}),
         GPpair(INTPHRASE,{AUXILARY}),
         GPpair(INTPHRASE,{WHPHRASE}),
         GPpair(WHPHRASE,{WHWORD}),
+//        GPpair(ADJPHRASE,{NEGATION,ADJECTIVE,NOUNPHRASE}),
+//        GPpair(ADJPHRASE,{ADJECTIVE,NOUNPHRASE}),
+        GPpair(ADJPHRASE,{NEGATION,NOUNPHRASE}),
+        GPpair(ADJPHRASE,{ADJECTIVE})
 //        GPpair(AUXILARY,{VERB})
     };
 //    others = 0,
