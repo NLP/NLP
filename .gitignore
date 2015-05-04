@@ -28,3 +28,6 @@ main
 RemoteSystemsTempFiles*
 *.metadata
 *.log
+
+# ignore change in database
+ont_db.sql

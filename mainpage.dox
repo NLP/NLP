@@ -1,0 +1,38 @@
+///
+/// @mainpage  Natural Language Processing : Ultron
+///  \section link GitHub Link
+///   <a href="http://github.com/NLP"> NLP </a>"
+///  \section intro Introduction : Text Ontological Relation Extraction 
+///  One domain of artificial intelligence is a topic called Natural Language Processing.
+///  Fmr an AI to understand and communicate effectively, it has to understand language and semantics of human language.
+///  The purpose of the project is to implement a program that is capable building a logical and relationships structure out of sentences, which can be extended to a wall of text.
+///
+///  \section topic  Topics
+///  The topics covered used in the project includes:
+///  1. Formal Grammar of English
+///  2. Relational Database (SQLite)
+///  3. Parsing with Context-Free Grammars
+///  4. Semantics and Pragmatics
+/// 
+///  \section scope Project Scope
+///  The project is separated into several sub-parts. 
+///  1. To extract parts of sentence, a word tokenizer is used. 
+///  2. For each word, its attributes can be determined by using a database of dictionary. A public dictionary is used in form of SQLite database. This sub-parts will construct ‘Word’ class and objects that has a token and it’s part of speech objects.
+///  3. From the part of speech objects, a syntax tree is constructed. This syntax tree will be used to identify what kind of sentence given.
+///  4. The last part of the project is to use relational database to build a relationships between part of speech objects.
+///  5. Combining all parts of the projects, the program should be able recognize, remembers and return textual informations given.
+///  
+///  \section diagram Project Diagram
+///  1. Tokenize Input into Tokens
+///  2. Tag Tokens with POS Tags
+///  3. Determine the most probable Tag for each Token
+///  4. Parse Tokens into Syntax Tree using Grammar Structure
+///  5. Determine Head Verb/Noun of the Tree and each of its Sub-Trees
+///  6. Determine the most probable Tree
+///  7. Create Relationship Diagram from the Tree
+/// 
+/// 
+/// 
+/// 
+/// 
+/// 
