@@ -172,8 +172,8 @@ namespace NLP
         DIRECTOBJ   , /// He eats "apple"
         INDIRECTOBJ , /// He kicks the ball to "him"
         AUX         ,
-        QWORD,
-        ATTRIBUTE
+        QWORD		,
+        ATTRIBUTE		/// this stores information such as adjective, noun describing objects ,etc
     };
 
     static std::map<SyntaxObject, std::string> syntaxStrEncoding = {
@@ -184,6 +184,7 @@ namespace NLP
         {   DIRECTOBJ,      "o"           },
         {   INDIRECTOBJ,    "io"          },
         {   AUX,            "aux" 	      },
+        {   ATTRIBUTE,      "att" 	      },
         {   QWORD,          "q"        	  }
     };
 
@@ -210,6 +211,7 @@ namespace NLP
         {   DIRECTOBJ,      "obj"                 },
         {   INDIRECTOBJ,    "indirect"            },
         {   AUX,            "*"        			  }, // * why star? yes no question
+        {   ATTRIBUTE  ,    "attribute"           },
         {   QWORD,          "question"            }
     };
     static const SyntaxObject soList[] = {
