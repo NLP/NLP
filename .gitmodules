@@ -9,14 +9,9 @@
 [submodule "Parser"]
 	path = Parser
 	url = git@github.com:NLP/Parser.git
-    branch = master
 [submodule "Granular-Extractor"]
 	path = Granular-Extractor
 	url = git@github.com:NLP/Granular-Extractor.git
-    branch = master
 [submodule "Unit-Testing"]
 	path = Unit-Testing
 	url = git@github.com:NLP/Unit-Testing.git
-[submodule "Granular-Extractor"]
-	path = Granular-Extractor
-	url = git@github.com:NLP/Granular-Extractor.git
