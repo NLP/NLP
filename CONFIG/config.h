@@ -172,7 +172,8 @@ namespace NLP
         DIRECTOBJ   , /// He eats "apple"
         INDIRECTOBJ , /// He kicks the ball to "him"
         AUX         ,
-        QWORD
+        QWORD,
+        ATTRIBUTE
     };
 
     static std::map<SyntaxObject, std::string> syntaxStrEncoding = {
@@ -194,7 +195,8 @@ namespace NLP
         {   DIRECTOBJ,      "Direct Object"     },
         {   INDIRECTOBJ,    "Indirect Object"   },
         {   AUX,            "Auxilary Verb"     },
-        {   QWORD,          "Question Word"     }
+        {   QWORD,          "Question Word"     },
+        {   ATTRIBUTE,      "Atrribute"         }
     };
 
     /**
@@ -218,7 +220,8 @@ namespace NLP
         DIRECTOBJ   ,
         INDIRECTOBJ ,
         AUX         ,
-        QWORD
+        QWORD       ,
+        ATTRIBUTE
     };
 
     static const GrammarPhrase posList[] = {
@@ -286,6 +289,7 @@ namespace NLP
     static const GPpair cfgqInit[] = {
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,VERBPHRASE}),
 //        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,PREPPHRASE}),
+        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,ADJPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE}),
         GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
