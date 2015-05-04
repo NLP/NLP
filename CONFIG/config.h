@@ -110,7 +110,9 @@ namespace NLP
         INTPHRASE,
         WHPHRASE,
         WHWORD,
-        AUXILARY
+        AUXILARY,
+        ADJECTIVE,
+        NEGATION
     };
     /**
       * @brief gpList The array that holds all of the Grammar Phrase enumerations.
@@ -130,7 +132,9 @@ namespace NLP
         INTPHRASE,
         WHPHRASE,
         WHWORD,
-        AUXILARY
+        AUXILARY,
+        ADJECTIVE,
+        NEGATION
     };
 
     /**
@@ -151,7 +155,9 @@ namespace NLP
         {    INTPHRASE ,    "Inter. Phrase" },
         {    WHPHRASE,      "Wh. Phrase"    },
         {    WHWORD,        "Wh. Word"      },
-        {    AUXILARY,      "Auxilary"      }
+        {    AUXILARY,      "Auxilary"      },
+        {   ADJECTIVE,      "Adjective"     },
+        {   NEGATION,       "Negation"      }
 
     };
 
@@ -280,6 +286,8 @@ namespace NLP
         GPpair(SENTENCE,{INTPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE}),
         GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
+        GPpair(SENTENCE,{NOUNPHRASE,AUXILARY,ADJECTIVE}),
+        GPpair(SENTENCE,{NOUNPHRASE,AUXILARY,NEGATION,ADJECTIVE}),
         GPpair(NOUNPHRASE,{DETERMINER,NOUN}),
         GPpair(NOUNPHRASE,{NOUN}),
         GPpair(VERBPHRASE,{VERB,NOUNPHRASE,PREPPHRASE}),
@@ -311,7 +319,8 @@ namespace NLP
         {question,WHWORD},
         {auxiliary,AUXILARY},
         {particple,VERB},
-        {imperfect,VERB}
+        {imperfect,VERB},
+        {adjective,ADJECTIVE}
     };
 
     static std::map<GrammarPhrase,WordType> GPtoWT = {
@@ -320,9 +329,11 @@ namespace NLP
         {PREP,preposition},
         {DETERMINER,determiner},
         {WHWORD,question},
-        {AUXILARY,auxiliary}
+        {AUXILARY,auxiliary},
+        {ADJECTIVE,adjective}
 //        {pronoun,NOUN}
     };
+
 
 
 
