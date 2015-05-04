@@ -254,6 +254,8 @@ namespace NLP
         {IMPERATIVE,    "Imperative" },
         {INTERROGATIVE, "Interrogative"}
     };
+
+//    std::string
     //Typedefs:
     /**
      * @brief GPlist typedef for vector<GrammarPhrase>
@@ -289,7 +291,7 @@ namespace NLP
     static const GPpair cfgqInit[] = {
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,VERBPHRASE}),
 //        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,PREPPHRASE}),
-        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,ADJPHRASE}),
+//        GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE,ADJPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,VERBPHRASE}),
         GPpair(SENTENCE,{INTPHRASE,NOUNPHRASE}),
         GPpair(SENTENCE,{NOUNPHRASE,VERBPHRASE}),
@@ -301,7 +303,7 @@ namespace NLP
         GPpair(VERBPHRASE,{VERB,NOUNPHRASE}),
         GPpair(VERBPHRASE,{VERB,PREPPHRASE}),
         GPpair(VERBPHRASE,{VERB}),
-        GPpair(VERBPHRASE,{AUXILARY,ADJPHRASE}),
+//        GPpair(VERBPHRASE,{AUXILARY,ADJPHRASE}),
         GPpair(PREPPHRASE,{PREP,NOUNPHRASE}),
         GPpair(PREPPHRASE,{PREP}),
         GPpair(INTPHRASE,{WHPHRASE,AUXILARY}),
@@ -310,8 +312,8 @@ namespace NLP
         GPpair(WHPHRASE,{WHWORD}),
 //        GPpair(ADJPHRASE,{NEGATION,ADJECTIVE,NOUNPHRASE}),
 //        GPpair(ADJPHRASE,{ADJECTIVE,NOUNPHRASE}),
-        GPpair(ADJPHRASE,{NEGATION,NOUNPHRASE}),
-        GPpair(ADJPHRASE,{ADJECTIVE})
+//        GPpair(ADJPHRASE,{NEGATION,NOUNPHRASE}),
+//        GPpair(ADJPHRASE,{ADJECTIVE})
 //        GPpair(AUXILARY,{VERB})
     };
 //    others = 0,
@@ -332,7 +334,8 @@ namespace NLP
         {auxiliary,AUXILARY},
         {particple,VERB},
         {imperfect,VERB},
-        {adjective,ADJECTIVE}
+//        {adjective,ADJECTIVE}
+        {adjective,NOUN}
     };
 
     static std::map<GrammarPhrase,WordType> GPtoWT = {
@@ -342,7 +345,7 @@ namespace NLP
         {DETERMINER,determiner},
         {WHWORD,question},
         {AUXILARY,auxiliary},
-        {ADJECTIVE,adjective}
+//        {ADJECTIVE,adjective}
 //        {pronoun,NOUN}
     };
 
